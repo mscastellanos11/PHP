@@ -99,10 +99,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         .caja {
             display: flex;
-            display: grid; 
             place-items: center; 
             min-height: 100vh; 
-            background-color: #f0f0f0; 
+            background-image: url('../fondos.gif'); 
+            background-size: cover; 
+            background-position: center;
         }
 
         header {
@@ -125,6 +126,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         h2 {
             text-align: center;
+            color:white;
         }
 
         .exito {
@@ -138,7 +140,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         input[type="file"] {
-            display: none; /* Ocultar el input de tipo file */
+            display: none; 
         }
 
         .file-label {
@@ -148,8 +150,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             background-color: #f0f0f0;
             cursor: pointer;
             text-align: center;
-            font-size: 13px; /* Tamaño de fuente consistente */
-            width: 90px; /* Asegura que el label tenga el mismo ancho que el select */
+            font-size: 13px; 
+            width: 90px; 
         }
 
         .error {
@@ -162,7 +164,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             justify-content: center; 
             align-items: center; 
             gap: 10px;
-            background-color: #f0f0f0;
+            background-color: transparent;
             padding-bottom: 10px;
             padding-top: 2px;
             text-align: center;
@@ -196,6 +198,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         button[type="submit"]:hover {
             background-color: #0056b3;
         }
+
+        .label {
+            color:white;
+        }
     </style>
 </head>
 <body>
@@ -211,19 +217,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <p class="exito"><?php echo $errores['exito']; ?></p>
             <?php endif; ?>
     
-            <label for="nombre">Nombre:</label>
+            <label class="label" for="nombre">Nombre:</label>
             <input type="text" name="nombre" id="nombre" value="<?php echo htmlspecialchars($nombre); ?>" >
             <?php if (!empty($errores['nombre'])): ?>
                 <p class="error"><?php echo $errores['nombre']; ?></p>
             <?php endif; ?>
         
-            <label for="email">Email:</label>
+            <label class="label" for="email">Email:</label>
             <input type="email" name="email" id="email" value="<?php echo htmlspecialchars($email); ?>" >
             <?php if (!empty($errores['email'])): ?>
                 <p class="error"><?php echo $errores['email']; ?></p>
             <?php endif; ?>
         
-            <label for="password">Contraseña:</label>
+            <label class="label" for="password">Contraseña:</label>
             <input type="password" name="password" id="password" >
             <?php if (!empty($errores['password'])): ?>
                 <p class="error"><?php echo $errores['password']; ?></p>
